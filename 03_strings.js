@@ -66,3 +66,16 @@ let nombreArreglado = nombreSinEspacios.split(", ")
 nombreArreglado = nombreArreglado[1]+" "+nombreArreglado[0]
 console.log(nombreArreglado)
 
+
+// ventajas del +=
+let string = " "
+string += "A"
+console.log(string)
+string += "B"
+console.log(string);
+string += "C"
+console.log(string);
+string = "D"
+console.log(string);
+
+
