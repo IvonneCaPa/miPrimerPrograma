@@ -28,4 +28,11 @@ console.log(4>=9) // mayor o igual
 
 console.log (3 != 3)  //este es un comparador de diferencia, es verdaadero si son diferentes
 
+//Operadores lógicos
+
+// Y logico se deben cumplir las 2 condiciones, el operador es &&
+console.log((true) && (true))
+
+// O lógico donde con que se cumpla una de las condiciones es suficiente. El operador es ||
+console.log((true) || console.log(false))
 

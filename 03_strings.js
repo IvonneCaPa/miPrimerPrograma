@@ -33,8 +33,36 @@ console.log(nombre[0]);    //si quiero acceder a la inicial, es decir el primer 
 
 //ejemplo de como organizar una cadena. Vamos a poner el nombre correcto
 nombre ="feDeriCO"
-nombre = nombre.toLowerCase()   //primero pasamos todo a minusculas
-nombre = nombre[0].toUpperCase() + nombre.toLowerCase() //ponemos la primera posicion en mayuscula, pero salen dos f
+// nombre = nombre.toLowerCase()   //primero pasamos todo a minusculas
+// nombre = nombre[0].toUpperCase() + nombre.toLowerCase() 
 
+//ponemos la primera posicion en mayuscula, pero salen dos f, por que concatenamos
+//console.log(nombre)
 
-console.log(nombre)
+// Usamos CharAt() para obtener un valor especifico de una posicion
+console.log(nombre.charAt(0))
+
+//Otra forma para obtener un valor especifico de una posicion
+console.log(nombre[2])
+
+//Usamos el método slice() para obtener una parte de una cadena
+console.log(nombre.slice(4))
+
+//Usamos estos métodos para solucionar el problema de las 2 F
+console.log(nombre.charAt(0).toUpperCase()) //ponemos la inicial en mayuscula
+
+console.log(nombre.slice(1).toLowerCase()) //El resto de nombre en minuscula
+
+console.log((nombre.charAt(0).toUpperCase()) + (nombre.slice(1).toLowerCase())) //todo junto
+
+let nombreCompleto = "    Perez Gonzalez, Maria  "
+
+//Para quitar espacios del principio y del final con el metodo trim()
+let nombreSinEspacios = nombreCompleto.trim()
+console.log(nombreSinEspacios)
+
+//quito la coma del string
+let nombreArreglado = nombreSinEspacios.split(", ")
+nombreArreglado = nombreArreglado[1]+" "+nombreArreglado[0]
+console.log(nombreArreglado)
+

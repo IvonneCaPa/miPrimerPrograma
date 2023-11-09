@@ -1,3 +1,7 @@
-# Primer ejercicio
+# Un poco de todo
 
-Hacer un programa que nos pregunte la edad y según la edad nos diga si somos mayores de edad
+hay tres pruebas de error, el mayor, menor y el limite para comprobar el funcionamiento
+
+git remote add origin https://github.com/IvonneCaPa/miPrimerPrograma.git
+git branch -M main
+git push -u origin main
