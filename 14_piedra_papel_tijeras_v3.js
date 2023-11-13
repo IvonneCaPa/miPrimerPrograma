@@ -27,16 +27,15 @@ let texto_resolucion_partida = ""
 
 // Si el humano escoge mal las opciones
 if ((jugada_humano != 1) || (jugada_humano != 2) || (jugada_humano != 3)) {
-    alert(`${nombre_jugador} Has perdido la partida\n`)
+    alert(`${nombre_jugador} Has introducido un valor erroneo\n has perdido\n`)
 
-} else {
-    if (jugada_humano == 1){
+} else if (jugada_humano == 1){
         texto_resolucion_partida += `${nombre_jugador} Has escogido Piedra\n`;
-    } else if (jugada_humano == 2){
+} else if (jugada_humano == 2){
         texto_resolucion_partida += `${nombre_jugador} Has escogido Papel\n`;
-    } else if (jugada_humano == 3){
+} else if (jugada_humano == 3){
         texto_resolucion_partida += `${nombre_jugador} Has escogido Tijera\n`;
-    } else {
+} else {
         texto_resolucion_partida += `${nombre_jugador} Has perdido la partida\n`;
     }
 
@@ -62,7 +61,6 @@ if ((jugada_humano != 1) || (jugada_humano != 2) || (jugada_humano != 3)) {
     }
 
     alert(texto_resolucion_partida);
-}
 
 
 

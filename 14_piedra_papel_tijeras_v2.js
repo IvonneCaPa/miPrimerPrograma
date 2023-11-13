@@ -45,13 +45,13 @@ if (jugada_pc == 1){
 
 // La partida
 if(jugada_humano == jugada_pc){
-    texto_resolucion_partida += `Habéis empatado`;
+    texto_resolucion_partida += `\n### Habéis empatado ###`;
 } else if ((jugada_humano == 1 && jugada_pc == 3) 
 || (jugada_humano == 2 && jugada_pc == 1) 
 || (jugada_humano == 3 && jugada_pc == 2)){
-    texto_resolucion_partida += `Has ganado ${nombre_jugador}`;
+    texto_resolucion_partida += `\n### Has ganado ${nombre_jugador} ###`;
 } else {
-    texto_resolucion_partida +=`Has perdido ${nombre_jugador}`;
+    texto_resolucion_partida +=`\n### Has perdido ${nombre_jugador} ###`;
 }
 
 alert(texto_resolucion_partida);

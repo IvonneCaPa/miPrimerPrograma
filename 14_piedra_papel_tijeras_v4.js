@@ -1,84 +1,95 @@
-//Revisamos los posibles errores de introducción de datos del usuario en el menu
+// JUEGO PIEDRA-PAPEL-TIJERAS v3
+// Revisamos que no haya errores por partes del usuario
 
-
-// Jugada Humana
-let nombre_incorrecto = true
+let nombre_jugador = ""
+// let nombre_incorrecto = true
 do {
-let mensaje_inicial = `
-### Bienvenido a nuestro juego ### 
+// preguntar al usuario su nombre
+let mensaje_inicial =`
+¡Vamos a jugar al Piedra-Papel-Tijeras!
 
-Yo me llamo PC, Dime como te llamas?
+Me llamo PC. ¿Y tu?
+(Debes escribir al menos 3 caracteres)
 `
-let nombre_jugador = prompt(mensaje_inicial)
+    nombre_jugador = prompt(mensaje_inicial)
+
+if ((nombre_jugador != null) && (nombre_jugador.trim().length > 3)) {
+    console.log("Condición solucionada");
+    break;
+}else{
+    alert("No has escribió un nombre válido\n minimo 3 caracteres");
+}
+// console.log("tecla :", nombre_jugador);
+// if ( nombre_jugador.trim().length > 0 ) {
+//     console.log("Condición solucionada");
+//     nombre_incorrecto = false
+// }
+
+} while (true)
+
+console.log(nombre_jugador);
 
 let menu = `
 OPCIONES DEL JUEGO
 ==================
-Hola ${nombre_jugador} elige el número correspondiente 
+${nombre_jugador} elige el número correspondiente
 a la jugada que prefieres
 
-1. Piedra
-2. papel
-3. Tijeras
+1 - Piedra
+2 - Papel
+3 - Tijeras
 `
+// Ya tenemos la jugada del humano
+let jugada_humano = parseInt(prompt(menu))
+// alert(typeof jugada_humano)
+if (jugada_humano != 1 || jugada_humano != 2 || jugada_humano != 3 ) {
+    alert("Partida finalizada. ¡Hasta pronto!")
+} 
 
-if(nombre_jugador.trim().length >0 || nombre_jugador != null){
-    nombre_incorrecto = false
-}
-} while (nombre_incorrecto)
-
-let jugada_humano = prompt(menu)
 let texto_resolucion_partida = ""
 
-
-// Si el humano escoge mal las opciones
-if ((jugada_humano != 1) || (jugada_humano != 2) || (jugada_humano != 3)) {
-    alert(`${nombre_jugador} Has perdido la partida\n`)
-
+if (jugada_humano == 1) {
+    texto_resolucion_partida += `Piedra <-- La jugada de ${nombre_jugador}\n`;
+} else if (jugada_humano == 2 ) {
+    texto_resolucion_partida += `Piedra <-- La jugada de ${nombre_jugador}\n`;
 } else {
-    if (jugada_humano == 1){
-        texto_resolucion_partida += `${nombre_jugador} Has escogido Piedra\n`;
-    } else if (jugada_humano == 2){
-        texto_resolucion_partida += `${nombre_jugador} Has escogido Papel\n`;
-    } else if (jugada_humano == 3){
-        texto_resolucion_partida += `${nombre_jugador} Has escogido Tijera\n`;
-    } else {
-        texto_resolucion_partida += `${nombre_jugador} Has perdido la partida\n`;
-    }
-
-    //La jugada del PC
-    let jugada_pc = getRandomInt(1, 4)
-    if (jugada_pc == 1){
-        texto_resolucion_partida += ` Y el PC ha escogido Piedra\n`;
-    } else if(jugada_pc == 2){
-        texto_resolucion_partida += ` Y el PC ha escogido Papel\n`;
-    } else {
-        texto_resolucion_partida += ` Y el PC ha escogido Tijera\n`;
-    }
-
-    // La partida
-    if(jugada_humano == jugada_pc){
-        texto_resolucion_partida += `Habéis empatado`;
-    } else if ((jugada_humano == 1 && jugada_pc == 3) 
-    || (jugada_humano == 2 && jugada_pc == 1) 
-    || (jugada_humano == 3 && jugada_pc == 2)){
-        texto_resolucion_partida += `Has ganado ${nombre_jugador}`;
-    } else {
-        texto_resolucion_partida +=`Has perdido ${nombre_jugador}`;
-    }
-
-    alert(texto_resolucion_partida);
+    texto_resolucion_partida +=(`Tijeras <-- La jugada de ${nombre_jugador}\n`);
 }
 
+// Jugada del PC
+let jugada_PC = getRandomInt(1, 4)
+if (jugada_PC == 1) {
+    texto_resolucion_partida += `Piedra <-- La jugada del PC\n`;
+} else if (jugada_PC == 2) {
+    texto_resolucion_partida += `Papel <-- La jugada del PC\n`;
+} else {
+    texto_resolucion_partida +=`Tijeras <-- La jugada del PC\n`;
+}
+
+// Partida
+if (jugada_humano == jugada_PC) {
+    texto_resolucion_partida +=`¡Habéis empatado!\n`;
+} else if ((jugada_humano==1 && jugada_PC==3) 
+            || (jugada_humano==2 && jugada_PC==1) 
+            || (jugada_humano==3 && jugada_PC==2)) {
+    texto_resolucion_partida +=`¡Has ganado ${nombre_jugador}!\n`;
+} else {
+    texto_resolucion_partida +=`¡Has perdido ${nombre_jugador}!\n`;
+}
+
+alert(texto_resolucion_partida)
 
 
 
 
-// Notesé que también en este caso `min` será incluido y `max` excluid
+
+
+  
+
+
+// Notesé que también en este caso `min` será incluido y `max` excluido
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);  //return es una palabra reservada para devolver el valor
-}
-
-  
+    return Math.floor(Math.random() * (max - min) + min);
+  }
